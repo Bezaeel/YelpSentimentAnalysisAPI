@@ -1,0 +1,47 @@
+Inferring Columns ...
+Creating Data loader ...
+Loading data ...
+Exploring multiple ML algorithms and settings to find you the best model for ML task: binary-classification
+For further learning check: https://aka.ms/mlnet-cli
+|     Trainer                              Accuracy      AUC    AUPRC  F1-score  Duration #Iteration             |
+[Source=AutoML, Kind=Trace] Channel started
+[Source=AutoML, Kind=Trace] Evaluating pipeline xf=TextFeaturizing{ col=col0_tf:col0} xf=ColumnCopying{ col=Features:col0_tf} xf=Normalizing{ col=Features:Features} tr=AveragedPerceptronBinary{}  cache=+
+[Source=AutoML, Kind=Trace] 1	0.783452786009199	00:00:03.4510391	xf=TextFeaturizing{ col=col0_tf:col0} xf=ColumnCopying{ col=Features:col0_tf} xf=Normalizing{ col=Features:Features} tr=AveragedPerceptronBinary{}  cache=+
+|1    AveragedPerceptronBinary               0.7760   0.8863   0.8842    0.7705       3.5          0             |
+[Source=AutoML, Kind=Trace] Evaluating pipeline xf=TextFeaturizing{ col=col0_tf:col0} xf=ColumnCopying{ col=Features:col0_tf} xf=Normalizing{ col=Features:Features} tr=SdcaLogisticRegressionBinary{}  cache=+
+[Source=AutoML, Kind=Trace] 2	0.811362705702593	00:00:03.7853728	xf=TextFeaturizing{ col=col0_tf:col0} xf=ColumnCopying{ col=Features:col0_tf} xf=Normalizing{ col=Features:Features} tr=SdcaLogisticRegressionBinary{}  cache=+
+|2    SdcaLogisticRegressionBinary           0.8240   0.9017   0.9126    0.8167       3.8          0             |
+[Source=AutoML, Kind=Trace] Evaluating pipeline xf=TextFeaturizing{ col=col0_tf:col0} xf=ColumnCopying{ col=Features:col0_tf} tr=LightGbmBinary{}  cache=-
+[Source=AutoML, Kind=Trace] 3	0.763787786411138	00:00:10.6909248	xf=TextFeaturizing{ col=col0_tf:col0} xf=ColumnCopying{ col=Features:col0_tf} tr=LightGbmBinary{}  cache=-
+|3    LightGbmBinary                         0.7664   0.8311   0.8768    0.7863      10.7          0             |
+[Source=AutoML, Kind=Trace] Evaluating pipeline xf=TextFeaturizing{ col=col0_tf:col0} xf=ColumnCopying{ col=Features:col0_tf} xf=Normalizing{ col=Features:Features} tr=SymbolicSgdLogisticRegressionBinary{}  cache=+
+[Source=AutoML, Kind=Trace] 4	0.763433461228993	00:00:03.9882364	xf=TextFeaturizing{ col=col0_tf:col0} xf=ColumnCopying{ col=Features:col0_tf} xf=Normalizing{ col=Features:Features} tr=SymbolicSgdLogisticRegressionBinary{}  cache=+
+|4    SymbolicSgdLogisticRegressionBinary    0.7680   0.8369   0.7725    0.7752       4.0          0             |
+[Source=AutoML, Kind=Trace] Evaluating pipeline xf=TextFeaturizing{ col=col0_tf:col0} xf=ColumnCopying{ col=Features:col0_tf} xf=Normalizing{ col=Features:Features} tr=LinearSvmBinary{}  cache=+
+[Source=AutoML, Kind=Trace] 5	0.762019134008576	00:00:02.5090630	xf=TextFeaturizing{ col=col0_tf:col0} xf=ColumnCopying{ col=Features:col0_tf} xf=Normalizing{ col=Features:Features} tr=LinearSvmBinary{}  cache=+
+|5    LinearSvmBinary                        0.7835   0.8576   0.8714    0.7742       2.5          0             |
+[Source=AutoML, Kind=Trace] Evaluating pipeline xf=TextFeaturizing{ col=col0_tf:col0} xf=ColumnCopying{ col=Features:col0_tf} tr=FastTreeBinary{}  cache=-
+
+===============================================Experiment Results=================================================
+------------------------------------------------------------------------------------------------------------------
+|                                                     Summary                                                    |
+------------------------------------------------------------------------------------------------------------------
+|ML Task: binary-classification                                                                                  |
+|Dataset: yelp_labelled.txt                                                                                      |
+|Label : Label                                                                                                   |
+|Total experiment time : 40.40 Secs                                                                              |
+|Total number of models explored: 5                                                                              |
+------------------------------------------------------------------------------------------------------------------
+|                                              Top 5 models explored                                             |
+------------------------------------------------------------------------------------------------------------------
+|     Trainer                              Accuracy      AUC    AUPRC  F1-score  Duration #Iteration             |
+|1    SdcaLogisticRegressionBinary           0.8240   0.9017   0.9126    0.8167       3.8          2             |
+|2    LinearSvmBinary                        0.7835   0.8576   0.8714    0.7742       2.5          5             |
+|3    AveragedPerceptronBinary               0.7760   0.8863   0.8842    0.7705       3.5          1             |
+|4    SymbolicSgdLogisticRegressionBinary    0.7680   0.8369   0.7725    0.7752       4.0          4             |
+|5    LightGbmBinary                         0.7664   0.8311   0.8768    0.7863      10.7          3             |
+------------------------------------------------------------------------------------------------------------------
+Generated trained model for consumption: C:\Workspaces\DotnetProjects\ML_Projects\SentimentAnalysisDemos\SentimentAnalysisFromCLI\YelpSentimentProgram\Yelp.Model\Yelp.Model.Model\MLModel.zip
+Retrieving best pipeline ...
+Generated C# code for model consumption: C:\Workspaces\DotnetProjects\ML_Projects\SentimentAnalysisDemos\SentimentAnalysisFromCLI\YelpSentimentProgram\Yelp.Model\Yelp.Model.ConsoleApp
+Check out log file for more information: C:\Workspaces\DotnetProjects\ML_Projects\SentimentAnalysisDemos\SentimentAnalysisFromCLI\YelpSentimentProgram\Yelp.Model\logs\debug_log.txt
