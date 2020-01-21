@@ -30,7 +30,16 @@ namespace Yelp.Web.API.Controllers
 
             //predict sentiment
             ModelOutput prediction = _predictionEnginePool.Predict(sampleData);
-            string retVal = $"{sentimentText} is sentiment positive: {prediction.Prediction} to a probability of {prediction.Probability}";
+            string retVal = string.Empty;
+            var probabilityToPercent = prediction.Probability * 100;
+            if (prediction.Prediction)
+            {
+                retVal = $"'{sentimentText}' is {probabilityToPercent}% sentiment positive";
+            }
+            else
+            {
+                retVal = $"'{sentimentText}' is {probabilityToPercent}%  sentiment negative";
+            }
             return retVal;
         }
     }
